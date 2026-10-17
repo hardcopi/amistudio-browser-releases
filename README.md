@@ -5,19 +5,18 @@ AmiStudio Browser lets a classic Amiga browse the modern web. A real Chromium ru
 finished page pictures and sound to the Amiga, which sends back mouse and keys.
 This repository has release downloads only (no source).
 
-## Latest: 0.79
-* The main menu (the "hamburger" button at the right of the toolbar) no longer strobes. With MUI 5 it is now
-  MUI's own popup menu, drawn like MUI 5's menu strip; this is aimed at the crash some Kickstart 3.2 / MUI 5 /
-  24-bit RTG machines had when it opened (please report if it still happens).
-* The page and sound pause while that menu is open. With older MUI and the GadTools version the menu keeps its
-  own window, and the page is no longer drawn while it is open.
-* More breadcrumbs around the menus in `AmiStudioBrowser.log`.
-* Includes 0.78's fixes: signing in to a personal @gmail.com account ("This browser or app may not be secure")
-  and the clickable "save the password" bar (host side: update the engine too).
+## Latest: 0.80
+* **DRM video (Netflix, Spotify, Prime Video, Disney+ ...)** can work in the AmiKit edition once Google's Widevine
+  CDM is added. It is Google's and may not be redistributed, so no download here contains it. Add it once on Linux:
+  `sh AmiStudioBrowser/Host/get-widevine.sh` - it copies the CDM from Google Chrome if installed, or (after asking)
+  downloads Google's Chrome package from dl.google.com and keeps only its WidevineCdm folder. Restart the engine
+  afterwards. With Google Chrome installed the engine finds Chrome's CDM by itself. Without it Netflix shows M7701-1003.
+* Quality limits on Linux (Widevine L3 only): Netflix up to 1080p (often 720p), Disney+ 480p-720p, Prime Video SD.
+* Tested with a public Widevine test stream (picture and sound reach the Amiga). Netflix itself is not tested yet.
 
-Earlier: 0.78 fixed @gmail.com sign-in and the save-password bar; 0.77 fixed Backspace in the address bar, menu
-strobing and menu freezes and added the Amiga-side log; 0.76 reduced menu flicker, 0.75 made video fullscreen fill
-the view, 0.74 added sound and the AmiKit edition.
+Earlier: 0.79 made the hamburger menu MUI's own popup menu on MUI 5 (no more strobing); 0.78 fixed @gmail.com sign-in
+and the save-password bar; 0.77 fixed Backspace in the address bar and added the Amiga-side log; 0.76 reduced menu
+flicker, 0.75 made video fullscreen fill the view, 0.74 added sound and the AmiKit edition.
 
 ## Where things are kept (0.77 and later)
 * Amiga log: `AmiStudioBrowser.log` next to the AmiStudioBrowser program (the previous run is kept as
