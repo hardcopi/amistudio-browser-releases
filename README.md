@@ -5,17 +5,19 @@ AmiStudio Browser lets a classic Amiga browse the modern web. A real Chromium ru
 finished page pictures and sound to the Amiga, which sends back mouse and keys.
 This repository has release downloads only (no source).
 
-## Latest: 0.77
-* Backspace, Ctrl-H, Del and the cursor keys in the address bar edit one character again (a click no longer
-  selects the whole address; Ctrl-A then Backspace clears it).
-* The main menu and the right-click menu are now windows of their own: no more strobing over a playing page,
-  and they may extend past a small browser window.
-* Fixes for multi-second freezes when opening a menu while a video plays on slower Amigas.
-* New Amiga-side log, and the AmiKit engine's data now lives inside the drawer (see below).
+## Latest: 0.78
+* Signing in to a personal @gmail.com Google account works again. Google refused it ("Couldn't sign you in -
+  This browser or app may not be secure") because the headless engine announced itself as "HeadlessChrome";
+  it now identifies as a normal Chrome of the same version. Google Workspace accounts were not affected.
+* The "save the password" bar's Save / Never for this site / Not now buttons can be clicked on every page
+  (some pages swallowed the clicks before).
+* "Never for this site" now also works on a site that already has a saved login.
+* An unanswered save-password prompt now reappears on following pages for 2 minutes only.
 
-Earlier: 0.76 reduced menu flicker, 0.75 made video fullscreen fill the view, 0.74 added sound and the AmiKit edition.
+Earlier: 0.77 fixed Backspace in the address bar, menu strobing and menu freezes and added the Amiga-side log;
+0.76 reduced menu flicker, 0.75 made video fullscreen fill the view, 0.74 added sound and the AmiKit edition.
 
-## Where things are kept (0.77)
+## Where things are kept (0.77 and later)
 * Amiga log: `AmiStudioBrowser.log` next to the AmiStudioBrowser program (the previous run is kept as
   `AmiStudioBrowser.log.old`). `LOG=<file>` moves it, `LOG=OFF` turns it off.
 * AmiKit edition, Linux side: `AmiStudioBrowser/Host/data/`, which holds `host.log` (engine log), `config/`
