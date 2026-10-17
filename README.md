@@ -5,9 +5,25 @@ AmiStudio Browser lets a classic Amiga browse the modern web. A real Chromium ru
 finished page pictures and sound to the Amiga, which sends back mouse and keys.
 This repository has release downloads only (no source).
 
-## Latest: 0.76
-Popup menus (main menu, right-click menu) and the address suggestion list no longer flicker over a playing page.
-0.75 made video fullscreen fill the view and stopped Esc closing the MUI window; 0.74 added sound and the AmiKit edition.
+## Latest: 0.77
+* Backspace, Ctrl-H, Del and the cursor keys in the address bar edit one character again (a click no longer
+  selects the whole address; Ctrl-A then Backspace clears it).
+* The main menu and the right-click menu are now windows of their own: no more strobing over a playing page,
+  and they may extend past a small browser window.
+* Fixes for multi-second freezes when opening a menu while a video plays on slower Amigas.
+* New Amiga-side log, and the AmiKit engine's data now lives inside the drawer (see below).
+
+Earlier: 0.76 reduced menu flicker, 0.75 made video fullscreen fill the view, 0.74 added sound and the AmiKit edition.
+
+## Where things are kept (0.77)
+* Amiga log: `AmiStudioBrowser.log` next to the AmiStudioBrowser program (the previous run is kept as
+  `AmiStudioBrowser.log.old`). `LOG=<file>` moves it, `LOG=OFF` turns it off.
+* AmiKit edition, Linux side: `AmiStudioBrowser/Host/data/`, which holds `host.log` (engine log), `config/`
+  (history.tsv, bookmarks.tsv, settings, passwords) and `profile/` (Chromium profile). It is created on first
+  start, and data from `~/.local/state/amistudio-browser-amikit/` is moved there automatically. If the drawer
+  is read-only, noexec or cannot hold symlinks, the old folder is used and `host.log` says why.
+  `ASB_STATE=/folder` overrides.
+* Downloads still go to `~/Downloads`.
 
 ## Downloads
 See [Releases](../../releases). Each version has:
@@ -41,6 +57,10 @@ program at it with the `CHROMEHOST=`, `PORT=` and `TOKEN=` tooltypes. See the Re
 
 ## Credits and licences
 * Icons: **Ken's Icons** (Kenneth's DualPNG icons, also shipped in AmiKit).
+* Toolbar icon shapes: **Lucide** (ISC licence).
+* Frame decoding in the Amiga program and the engine: **stb_image** (public domain / MIT) and **QOI** (MIT).
+* The Linux engine `asb-chromed` statically links **OpenSSL** 3 libcrypto (Apache 2.0), **zlib** (zlib licence)
+  and **Zstandard** (BSD-3-Clause); licence texts are in `Host/LICENSES/`.
 * The AmiKit edition bundles ungoogled-chromium (portable Linux build), BSD-licensed, with
   Chromium's third-party components; licences are in `Host/LICENSES/`. Source of that build:
   https://github.com/ungoogled-software/ungoogled-chromium-portablelinux
