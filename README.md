@@ -5,6 +5,10 @@ AmiStudio Browser lets a classic Amiga browse the modern web. A real Chromium ru
 finished page pictures and sound to the Amiga, which sends back mouse and keys.
 This repository has release downloads only (no source).
 
+## Latest: 0.75
+Video fullscreen now fills the browser view, and Esc no longer closes the MUI window (it leaves the
+video fullscreen instead). 0.74 added sound (AHI or Paula) and the one-archive AmiKit edition.
+
 ## Downloads
 See [Releases](../../releases). Each version has:
 
