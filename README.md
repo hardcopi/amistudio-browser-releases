@@ -5,17 +5,19 @@ AmiStudio Browser lets a classic Amiga browse the modern web. A real Chromium ru
 finished page pictures and sound to the Amiga, which sends back mouse and keys.
 This repository has release downloads only (no source).
 
-## Latest: 0.78
-* Signing in to a personal @gmail.com Google account works again. Google refused it ("Couldn't sign you in -
-  This browser or app may not be secure") because the headless engine announced itself as "HeadlessChrome";
-  it now identifies as a normal Chrome of the same version. Google Workspace accounts were not affected.
-* The "save the password" bar's Save / Never for this site / Not now buttons can be clicked on every page
-  (some pages swallowed the clicks before).
-* "Never for this site" now also works on a site that already has a saved login.
-* An unanswered save-password prompt now reappears on following pages for 2 minutes only.
+## Latest: 0.79
+* The main menu (the "hamburger" button at the right of the toolbar) no longer strobes. With MUI 5 it is now
+  MUI's own popup menu, drawn like MUI 5's menu strip; this is aimed at the crash some Kickstart 3.2 / MUI 5 /
+  24-bit RTG machines had when it opened (please report if it still happens).
+* The page and sound pause while that menu is open. With older MUI and the GadTools version the menu keeps its
+  own window, and the page is no longer drawn while it is open.
+* More breadcrumbs around the menus in `AmiStudioBrowser.log`.
+* Includes 0.78's fixes: signing in to a personal @gmail.com account ("This browser or app may not be secure")
+  and the clickable "save the password" bar (host side: update the engine too).
 
-Earlier: 0.77 fixed Backspace in the address bar, menu strobing and menu freezes and added the Amiga-side log;
-0.76 reduced menu flicker, 0.75 made video fullscreen fill the view, 0.74 added sound and the AmiKit edition.
+Earlier: 0.78 fixed @gmail.com sign-in and the save-password bar; 0.77 fixed Backspace in the address bar, menu
+strobing and menu freezes and added the Amiga-side log; 0.76 reduced menu flicker, 0.75 made video fullscreen fill
+the view, 0.74 added sound and the AmiKit edition.
 
 ## Where things are kept (0.77 and later)
 * Amiga log: `AmiStudioBrowser.log` next to the AmiStudioBrowser program (the previous run is kept as
